@@ -1,0 +1,31 @@
+<header>
+    <div class="main-header border-b border-sky">
+        <div [ngClass]="'logo-container font-bold'">
+            <span [ngClass]="'text-white'">My</span>
+            <span [ngClass]="'text-blue'">Jobs</span>
+        </div>
+        <app-button *ngIf="!isAuthenticated" [variant]="'ghost'" (onClick)="redirectToLogin()">Login/Signup</app-button>
+        <div *ngIf="!!isAuthenticated" class="navigation">
+            <div class="item" [ngClass]="{'active': isPostJob()}"><a [routerLink]="'/postJob'">Post a Job</a></div>
+            <div class="avatar-img relative" (click)="toggleLogout()">{{user?.name && user?.name[0]}}
+                <button [ngClass]="{'visible': showDd, 'hidden': !showDd}" (click)="logout()"
+                    class="absolute top-16 p-4 rounded bg-white z-10">Logout</button>
+            </div>
+        </div>
+    </div>
+    <div class="banner-header" *ngIf="!!imageUrl">
+        <div>
+            <ng-container *ngTemplateOutlet="tempOutlet"></ng-container>
+        </div>
+        <div class="image-container">
+            <img src={{imageUrl}} />
+        </div>
+    </div>
+    <div class="banner-header relative flex-col" *ngIf="!imageUrl" [ngClass]="{'h-48': !imageUrl}">
+        <div [ngClass]="'text-lg font-bold text-white'">{{title}}</div>
+        <ng-container *ngTemplateOutlet="tempOutlet"></ng-container>
+    </div>
+</header>
+<ng-template #tempOutlet>
+    <ng-content></ng-content>
+</ng-template>

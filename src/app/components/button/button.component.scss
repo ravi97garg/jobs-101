@@ -1,0 +1,8 @@
+button {
+  padding: 12px 22px;
+  &.solid {
+  }
+  &.ghost {
+    background-color: #43afff33;
+  }
+}

@@ -1,0 +1,5 @@
+<button
+    [ngClass]="{'text-white rounded-md': true, 'bg-blue': variant === 'solid', 'border border-sky ghost': variant === 'ghost' }"
+    (click)="onClick.emit($event)">
+    <ng-content></ng-content>
+</button>

@@ -1,0 +1,22 @@
+input {
+  border: 1px solid #bbb;
+  &:focus,
+  &:active,
+  &:hover {
+    outline: #43afff;
+    border: 1px solid #43afff;
+  }
+
+  &.error {
+    border: 1px solid red;
+    &:focus,
+    &:active,
+    &:hover {
+      outline: red;
+      border: 1px solid red;
+    }
+  }
+  padding: 12px;
+  border-radius: 6px;
+  margin: 4px 0 4px 0;
+}

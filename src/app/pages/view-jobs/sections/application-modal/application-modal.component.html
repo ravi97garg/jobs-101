@@ -1,0 +1,26 @@
+<div *ngIf="applications.length > 0">
+    <div class="text-sm mb-2">
+        Total {{applications.length}} applications
+    </div>
+    <div class="grid grid-cols-2 gap-4 p-1 bg-gray-400 rounded-lg text-navy">
+        <div *ngFor="let application of applications" class="p-2 border border-navy rounded bg-white">
+            <div class="flex">
+                <div class="avatar-img">
+                    {{application.name[0]}}
+                </div>
+                <div class="flex flex-col ml-4 justify-around">
+                    <div class="font-bold">{{application.name}}</div>
+                    <div>{{application.email}}</div>
+                </div>
+            </div>
+            <div class="font-bold text-sm">Skills</div>
+            <div class="font-light">{{application.skills}}</div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!applications.length" class="flex flex-col items-center py-16 rounded-lg justify-center bg-gray-400">
+    <div class="opacity-60 mb-2">
+        <img width="120px" src="../../../../../assets/file.png" />
+    </div>
+    <div class="text-navy">No applications available!</div>
+</div>

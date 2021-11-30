@@ -1,0 +1,19 @@
+.why-us-container {
+  margin: 150px 190px 50px;
+  .section-title {
+    margin-bottom: 30px;
+  }
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px 20px;
+    margin-right: 30px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

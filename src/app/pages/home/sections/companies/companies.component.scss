@@ -1,0 +1,12 @@
+.companies-container {
+  margin: 0px 190px;
+  .section-title {
+    margin-bottom: 30px;
+  }
+  .card-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

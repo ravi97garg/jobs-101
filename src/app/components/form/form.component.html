@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit.emit(formGroup.value)">
+    <div class="text-lg mb-5">{{title}}</div>
+    <div class="text-sm mb-5">{{subtitle}}</div>
+    <div class="grid grid-cols-2 gap-4">
+        <div *ngFor="let field of fields" [ngClass]="field.className">
+            <app-input [key]="formGroup.get(field.id)" [label]="field.label" [placeholder]="field.placeholder" [error]="formGroup.get(field.id).touched &&
+            formGroup.get(field.id).invalid" [errorMessages]="field.validators" [type]="field.type"
+                [options]="field.options" [extra]="field.extra"></app-input>
+        </div>
+    </div>
+
+    <div class="flex mt-5 justify-center">
+        <app-button variant="solid">{{submitBtnLabel}}</app-button>
+    </div>
+</form>

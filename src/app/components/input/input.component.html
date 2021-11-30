@@ -1,0 +1,17 @@
+<div class="flex flex-col">
+    <div class="flex items-center justify-between">
+        <label [ngClass]="'text-sm'">{{label}}</label>
+        <a class="text-blue" routerLink="{{extra.href}}" *ngIf="extra">{{extra.label}}</a>
+    </div>
+
+    <input *ngIf="type !== 'radio'" [ngClass]="{'border': true, 'error': error}" placeholder="{{placeholder}}"
+        [formControl]="key" type="{{type}}" />
+    <div *ngIf="type === 'radio'">
+        <div *ngFor="let option of options">
+            <input name="key" [formControl]="key" type="{{type}}" class="radio" value="option.value">
+            {{option.label}}
+        </div>
+    </div>
+    <div *ngIf="error" class="text-right text-error text-sm">{{errorMessage}}
+    </div>
+</div>

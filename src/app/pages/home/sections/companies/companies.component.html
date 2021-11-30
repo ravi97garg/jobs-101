@@ -1,0 +1,8 @@
+<div class="companies-container">
+    <div class="section-title text-violet font-bold text-lg">Companies Who Trust Us</div>
+    <div class="card-container">
+        <div class="card flex flex-wrap justify-between my-4" *ngFor="let company of companies">
+            <img src="{{company.imageUrl}}" width="200px" />
+        </div>
+    </div>
+</div>

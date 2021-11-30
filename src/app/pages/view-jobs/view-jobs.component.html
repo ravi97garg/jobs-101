@@ -1,0 +1,27 @@
+<app-header [title]="'Jobs posted by you'">
+    <div class="view-jobs-container">
+        <div *ngIf="jobs.length > 0" class="absolute top-0 left-0 right-0 rounded-2xl mt-32 grid grid-cols-3 gap-4">
+            <div *ngFor="let job of jobs" class="bg-white p-4 rounded-2xl">
+                <div [ngClass]="'mb-2 truncate'">{{job.title}}</div>
+                <div [ngClass]="'job-desc text-sm mb-4'">{{job.description}}</div>
+                <div [ngClass]="'flex items-center justify-between text-sm'">
+                    <div [ngClass]="'truncate flex-1'">{{job.location}}</div>
+                    <button [ngClass]="'flex-1 text-center ml-4 text-xs bg-sky px-4 py-2 rounded-md'"
+                        (click)="viewApplications(job)">
+                        View Applications
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!jobs.length" class="flex flex-col items-center mt-16 p-16">
+            <img class="opacity-60" width="120px" src="../../../assets/file.png" />
+            <div class="mt-4 mb-6">Your posted jobs will show here!</div>
+            <a [routerLink]="'/postJob'">
+                <app-button>Post a job</app-button>
+            </a>
+        </div>
+    </div>
+</app-header>
+<app-modal [title]="'Applicants for this job'" [isOpen]="applicationModal" (handleClose)="closeApplications()">
+    <app-application-modal *ngIf="applicationModal" [jobId]="jobId"></app-application-modal>
+</app-modal>

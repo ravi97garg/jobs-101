@@ -1,0 +1,14 @@
+<app-header [imageUrl]="'../../../../assets/william-bayreuther-bTkgQGxfWJ8-unsplash.jpg'">
+    <div [ngClass]="'text-white text-2xl'">
+        Welcome to
+    </div>
+    <div [ngClass]="'mb-4'">
+        <span [ngClass]="'text-white text-2xl font-bold'">My</span>
+        <span [ngClass]="'text-blue text-2xl font-bold'">Jobs</span>
+    </div>
+    <a routerLink="/login">
+        <app-button variant="solid">Get Started</app-button>
+    </a>
+</app-header>
+<app-why-us></app-why-us>
+<app-companies></app-companies>

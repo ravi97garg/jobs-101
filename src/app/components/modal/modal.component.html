@@ -1,0 +1,12 @@
+<div *ngIf="isOpen" class="bg-overlay" (click)="handleClose.emit()">
+    <div class="modal" (click)="stopPropagation($event)">
+        <div>
+            <div *ngIf="title" class="text-lg font-bold text-navy flex items-center justify-between">
+                <div>{{title}}</div>
+                <button (click)="handleClose.emit()">x</button>
+            </div>
+            <hr *ngIf="title" class="my-2" />
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

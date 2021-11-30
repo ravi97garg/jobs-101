@@ -1,0 +1,9 @@
+<div class="why-us-container">
+    <div class="section-title text-violet font-bold text-lg">Why Us</div>
+    <div class="card-container">
+        <div class="card flex flex-col justify-between" *ngFor="let reason of reasons">
+            <h3 class="text-blue text-lg font-bold mb-4">{{reason.heading}}</h3>
+            <p class="text-navy text-sm">{{reason.description}}</p>
+        </div>
+    </div>
+</div>
