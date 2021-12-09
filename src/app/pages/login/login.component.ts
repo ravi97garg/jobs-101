@@ -9,6 +9,7 @@ import { AuthenticationService } from "src/app/services/authentication.service";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
+  formError = "";
   fields = [
     {
       label: "Email Address",
@@ -59,10 +60,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onLogin(values) {
-    this.authService
-      .getAuthStatus(values.email, values.password)
-      .subscribe(() => {
+    this.authService.getAuthStatus(values.email, values.password).subscribe(
+      () => {
         this.router.navigate(["viewJobs"]);
-      });
+      },
+      (err) => {
+        if (err.status === 401) {
+          this.formError = err.error.message;
+        }
+      }
+    );
   }
 }

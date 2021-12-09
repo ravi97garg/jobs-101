@@ -8,10 +8,10 @@
         [formControl]="key" type="{{type}}" />
     <div *ngIf="type === 'radio'">
         <div *ngFor="let option of options">
-            <input name="key" [formControl]="key" type="{{type}}" class="radio" value="option.value">
+            <input [id]="id" [name]="id" [formControl]="key" type="radio" class="radio" [value]="option.value">
             {{option.label}}
         </div>
     </div>
-    <div *ngIf="error" class="text-right text-error text-sm">{{errorMessage}}
+    <div *ngIf="error" class="text-right text-error text-sm">{{customErrorMessage || errorMessage}}
     </div>
 </div>

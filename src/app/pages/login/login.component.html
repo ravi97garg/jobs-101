@@ -1,7 +1,8 @@
 <app-header>
     <div class="absolute top-0 left-0 right-0 w-1/2 bg-white rounded-2xl p-8 m-auto mt-24">
         <div class="login-container">
-            <app-form [fields]="fields" title="Login" [submitBtnLabel]="'Login'" (onSubmit)="onLogin($event)">
+            <app-form [fields]="fields" [formError]="formError" title="Login" [submitBtnLabel]="'Login'"
+                (onSubmit)="onLogin($event)">
             </app-form>
             <div class="flex justify-center mt-4">
                 New to MyJobs? <a class="text-blue ml-1" routerLink="/signup">Create an account</a>

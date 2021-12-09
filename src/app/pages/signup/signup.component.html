@@ -1,7 +1,8 @@
 <app-header>
     <div class="absolute top-0 left-0 right-0 w-1/2 bg-white rounded-2xl p-8 m-auto mt-24">
         <div class="signup-container">
-            <app-form [fields]="fields" title="Signup" [submitBtnLabel]="'Signup'" (onSubmit)="onSubmit($event)">
+            <app-form [errors]="errors" [fields]="fields" title="Signup" [submitBtnLabel]="'Signup'"
+                (onSubmit)="onSubmit($event)">
             </app-form>
             <div class="flex justify-center mt-4">
                 Have an account? <a class="text-blue ml-1" routerLink="/login">Login</a>

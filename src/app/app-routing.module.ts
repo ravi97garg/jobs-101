@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AuthGuard } from "./guards/auth.guard";
 import { LoggedInAuthGuard } from "./guards/logged-in-auth.guard";
+import { RecruiterGuard } from "./guards/recruiter.guard";
 import { ForgotPasswordComponent } from "./pages/forgot-password/forgot-password.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { LoginComponent } from "./pages/login/login.component";
@@ -44,7 +45,7 @@ const routes: Routes = [
   {
     path: "postJob",
     component: PostJobComponent,
-    canActivate: [AuthGuard],
+    canActivate: [RecruiterGuard],
   },
   { path: "**", pathMatch: "full", component: PageNotFoundComponent },
 ];

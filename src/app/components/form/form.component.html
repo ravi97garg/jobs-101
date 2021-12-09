@@ -3,12 +3,15 @@
     <div class="text-sm mb-5">{{subtitle}}</div>
     <div class="grid grid-cols-2 gap-4">
         <div *ngFor="let field of fields" [ngClass]="field.className">
-            <app-input [key]="formGroup.get(field.id)" [label]="field.label" [placeholder]="field.placeholder" [error]="formGroup.get(field.id).touched &&
+            <app-input [id]="field.id" [key]="formGroup.get(field.id)" [label]="field.label"
+                [placeholder]="field.placeholder" [error]="formGroup.get(field.id).touched &&
             formGroup.get(field.id).invalid" [errorMessages]="field.validators" [type]="field.type"
-                [options]="field.options" [extra]="field.extra"></app-input>
+                [options]="field.options" [extra]="field.extra" [customErrorMessage]="errors[field.id]"></app-input>
         </div>
     </div>
-
+    <div *ngIf="formError" class="text-right text-error text-sm">
+        {{formError}}
+    </div>
     <div class="flex mt-5 justify-center">
         <app-button variant="solid">{{submitBtnLabel}}</app-button>
     </div>

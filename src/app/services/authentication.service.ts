@@ -79,7 +79,7 @@ export class AuthenticationService {
   getAuthStatus(email, password) {
     return this.httpClient
       .post<HttpResponse<User>>(
-        `${API_BASE_URL}/api/v1/auth/login`,
+        `${API_BASE_URL}/auth/login`,
         { email, password },
         { headers: { skip: "true" } }
       )

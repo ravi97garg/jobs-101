@@ -2,7 +2,10 @@ import { Component, Input, OnInit, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
 import { Subscription } from "rxjs";
-import { AuthenticationService } from "src/app/services/authentication.service";
+import {
+  AuthenticationService,
+  User,
+} from "src/app/services/authentication.service";
 
 @Component({
   selector: "app-header",
@@ -13,7 +16,7 @@ export class HeaderComponent implements OnInit {
   @Input() title?: string;
   @Input() imageUrl?: string;
 
-  user: any;
+  user: User;
   showDd = false;
   private authListenerSubs: Subscription;
   isAuthenticated: boolean = false;
@@ -47,7 +50,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    console.log("hi");
     this.cookieService.delete("AUTH_USER");
     this.cookieService.delete("AUTH_TOKEN");
     this.showDd = false;
