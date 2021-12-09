@@ -14,17 +14,17 @@ import { AuthenticationService } from "../services/authentication.service";
 @Injectable({
   providedIn: "root",
 })
-export class AuthGuard implements CanActivate {
+export class RecruiterGuard implements CanActivate {
   constructor(private router: Router, private cookieService: CookieService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | Promise<boolean> {
-    var isAuthenticated = !!this.cookieService.get("AUTH_TOKEN");
-    if (!isAuthenticated) {
-      this.router.navigate(["/login"]);
+    var authUser = this.cookieService.get("AUTH_USER");
+    if (!authUser || (authUser && JSON.parse(authUser).userRole)) {
+      this.router.navigate(["/viewJobs"]);
       return false;
     }
-    return isAuthenticated;
+    return true;
   }
 }
