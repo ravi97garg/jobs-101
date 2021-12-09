@@ -20,7 +20,7 @@ export class FormComponent implements OnInit, OnChanges {
   @Input() fields: Field[];
   @Output() onSubmit = new EventEmitter();
   @Input() submitBtnLabel: string;
-  @Input() errors: Record<any, any> = {};
+  @Input() errors: Record<string, string> = {};
   @Input() formError: string = "";
   formGroup = new FormGroup({});
   constructor() {}
